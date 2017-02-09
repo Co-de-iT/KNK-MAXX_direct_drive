@@ -1,0 +1,89 @@
+from: http://paulbourke.net/dataformats/hpgl/
+
+Introduction
+
+HPGL is the HP graphics language designed for specifying 2D graphical information for the HP range of plotters. It was not intended as an interchange format but some software suppliers use it as such. At least it is efficient and easy to write and read. This short note describes those aspects of the format which may be used to describe geometry. The language itself has a large number of instructions, most of the ones not touched on here relate directly to plotter devices, for a full description of the language the HPGL description is normally provided with an HPGL compatable plotter.
+
+Basics
+
+HPGL commands are basically two uppercase character instructions followed by any arguments, and finally ending in the separator character which is a semicolon by default. The arguments are normally separated by commas. String arguments are normally terminated by carriage return.
+
+In what follows, all the standard HPGL commands are listed, those which are likely to be useful for data interchange will be discussed at the end of this document. Optional arguments for any command are shown in brackets.
+
+Commands
+
+     Instruction                Arguments
+AA   Arc Absolute               x,y,angle(,tolerance)
+AF   Advance page
+AH   Advance page
+AP   Automatic Pen Operations   n
+AR   Arc Relative               x,y,angle(,tolerance)
+AS   Acceleration Select        acceleration(,pennumber)
+BF   Buffer Plot
+BL   Buffer label               string
+CA   Select Alternative Charset set
+CC   Character chord angle      angle
+CI   Circle                     radius(,tolerance)
+CM   Character Selection Mode   switchmode(,fallbackmode)
+CP   Character Plot             spaces,lines
+CS   Select Standard Charset    set
+CT   Chord Tolerance            n
+CV   Curved line generator      n(,inputdelay)
+CD   Digitize Clear
+DF   Default
+DI   Absolute Direction         run,rise
+DL   Define Download character  charnumber(,pencontrol),x,y(...)
+DP   Digitze Point
+DR   Relative Direction         run.rise
+DS   Designate Charset          slot,set
+DT   Define Label Terminator    terminator
+EA   Edge Rectangle Absolute    x,y
+EP   Edge Polygon            
+ER   Edge Rectangle Relative    x,y
+ES   Extra Space                spaces(,lines)
+EW   Edge Wedge                 radius,startangle,sweepangle(,tolerance)
+FP   Fill Polygon            
+FS   Force Select               force(.pennumber)
+FT   Fill Type                  type(,spacing(,angle))
+GC   Group Count                countnumber
+GM   Graphics Memory            (polygonbuff)(,downloadbuff)(,replotbuff)(,vectorbuff)
+GP   Group Pen                  (groupnumber(,pennumber(,numberofpens,(length))))
+IM   Input Mask                 emaskvalue(,smaskvalue(,pmaskvalue))
+IN   Initialize
+IP   Input p1 and p2            x,y(,x,y)
+IV   Invoke Character Slot      slot,(left)
+IW   Input Window               x,y,x,y
+KY   Define Key                 key(,function)
+LB   Label                      string
+LO   Label Origin               positionnumber
+LT   Line Type                  patternnumber(,patternlength)
+NR   Not Ready
+PA   Plot Absolute              x,y(,...)
+PB   Print Buffered Label
+PD   Pen Down                   x,y(,...)
+PG   Page Feed                  n
+PM   Polygon Mode               n
+PR   Plot Relative              x,y(,...)
+PT   Pen Thickness              thickness
+PU   Pen Up                     x,y(,...)
+RA   Fill Rectangle Absolute    x,y
+RO   Rotate Coordinate System   n
+RP   Replot                     n
+RR   Fill Rectangle Relative    x,y
+SA   Select Alternative Charset      
+SC   Scale                      x,y,x,y(,type(,left,bottom))
+SG   Select Pen Group           groupnumber
+SI   Absolute Character Size    width,height
+SL   Character Slant            tantheta
+SM   Symbol Mode                character
+SP   Select Pen                 pennumber
+SR   Relative Character Size    width,height
+SS   Select Standard Charset 
+TL   Tick Length                tp(,tn)
+UC   User Defined Character     (pencontrol,)x,y
+UF   User Defined Fill          gap1(,gap2,...gap20)
+VS   Velocity Select            speed(,pennumber)
+WD   Write to Display           string
+WG   Fill Wedge                 radius,startangle,sweepangle(,tolerance)
+XT   X Tick
+YT   Y Tick
