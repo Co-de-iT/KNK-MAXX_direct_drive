@@ -1,2 +1,3 @@
-# KNK_from_GH
-Code to send code to a KNK MAXX directly from GH
+# KNK-MAXX direct drive
+
+Code to send code directly to a KNK MAXX (only from Grasshopper for Rhino at the moment)
